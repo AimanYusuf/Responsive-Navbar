@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+
+nav {
+    display: flex;
+    background-color: #011632;
+    color: white;
+    justify-content: space-around;
+    font-weight: 200;
+    height: 50px;
+    align-items: center;
+    box-shadow: 0 0 5px 0 black;
+}
+
+nav .logo {
+    cursor: pointer;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.2em;
+}
+
+nav .logo span {
+    color: #FF1616;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+nav ul li a:hover {
+    opacity: 60%;
+}
+
+/* Burger Menu */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative ;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 35px;
+    height: 25px;
+    left: -5px;
+    top: -2px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+    transition: 0.35s;
+}
+
+/* Burger Menu Animations */
+
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0 ;
+}
+.menu-toggle span:nth-child(3){
+    transform-origin: 0 0 ;
+}
+.menu-toggle span:last-child{
+    transform-origin: 0 100% ;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    background-color: #f44343;
+    transform: rotate(45deg) 
+}
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+}
+.menu-toggle input:checked ~ span:last-child{
+    background-color: #f44343;
+    transform: rotate(-45deg)
+}
+
+
+
+
+
+/* Responsive Breakpoints */
+
+
+/* Tablet */
+
+@media screen and (max-width: 768px){
+    nav ul {
+        width: 50%;
+    }
+
+}
+
+/* Mobile heandphone */
+
+@media screen and (max-width: 576px){
+    nav ul {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        flex-direction: column;
+        background-color: #011632;
+        justify-content: start;
+        height: 100vh;
+        align-items: center;
+        width: 55%;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all 0.7s;
+    }
+
+    nav ul li {
+        margin-top: 50px;
+        width: 80%;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul.slide {
+        transform: translateX(0);
+    }
+    nav ul li:hover {
+        background-color: black;
+        text-align: center;
+        height: auto;
+        box-sizing: border-box;
+        border-radius:10px ;
+        cursor: pointer;
+    }
+}
